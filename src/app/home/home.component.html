@@ -1,0 +1,31 @@
+<h1>Login</h1>
+<section>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Tipo Identificacion</span>
+        <!--<input type="text" class="form-control" >-->
+        <select class="form-select form-control" aria-label="Default select example" [(ngModel)]="tipoId">
+            <option selected>{{ tipoId }}</option>
+            <option value="1">Cedula</option>
+            <option value="2">Tarjeta de indentidad</option>
+            <option value="3">Pasaporte</option>
+          </select>
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Identificacion</span>
+        <input type="text" class="form-control" [(ngModel)]="identificacion">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Usuario</span>
+        <input type="text" class="form-control" [(ngModel)]="usuario">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">Contraseña</span>
+        <input type="password" class="form-control" [(ngModel)]="contrasena">
+    </div>
+    <div class="justify-content-center boton-container">
+        <button type="button" (click)="login()"
+        class="btn btn-primary">Login</button>
+    </div>
+</section>
+  
+
