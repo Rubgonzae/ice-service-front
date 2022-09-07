@@ -9,13 +9,15 @@ import { RegistroComponent } from './registro/registro.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductsComponent,
-    RegistroComponent
+    RegistroComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

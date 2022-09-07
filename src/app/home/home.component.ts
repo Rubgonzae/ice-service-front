@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  //Definicion de variables
   usuarios:any=[];
   _id = '';
   identificacion = '';
@@ -19,26 +20,28 @@ export class HomeComponent implements OnInit {
   usuario = '';
   contrasena = '';
 
+  //Gestion de dependencias
   constructor(
     private http: HttpClient,
     private router: Router,
-
   ) { }
 
   ngOnInit(): void {
   }
 
+  //funcion de login
   login(){
     let url = `${environment.API_URL}usuarios/${this.identificacion}`;
-    console.log('url : ', url);
     this.http.get<any>(url)
     .subscribe(data=>{
       this.usuarios=data;
       console.log('usuario : ', this.usuarios[0])
+      //validar login
       this.validaLogin(data[0]);
     })
   }
 
+  //validar login
   validaLogin(usr: any){
     if (usr)
     {
@@ -46,6 +49,8 @@ export class HomeComponent implements OnInit {
           this.usuario === usr.usuario)
           {
             alert('usuario valido')
+            //cargar pagina de productos
+            this.router.navigate(['/pruducts']);
           }
           else
           {
@@ -55,7 +60,7 @@ export class HomeComponent implements OnInit {
     }
     else
     {
-      alert(`el usuario con identificacion ${this.identificacion} no se encuentra registrado`)
+      alert(`el usuario con identificación ${this.identificacion} no se encuentra registrado`)
       this.router.navigate(['/registro'])
     }    
 
